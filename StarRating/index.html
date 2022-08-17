@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Star Rating</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <style>
+      body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrapper {
+        display: inline-block;
+      }
+
+      label {
+        color: rgb(149, 146, 146);
+        cursor: pointer;
+      }
+
+      .container {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row-reverse;
+
+      }
+
+      input {
+        display: none;
+      }
+
+      button {
+        margin: 1em;
+      }
+      /* 
+    label:hover {
+      color: rgb(237, 207, 10);
+    } */
+
+      /* input:checked + label {
+      color: rgb(237, 207, 10);
+    } */
+
+      /* working */
+
+      /* body {
+      display: inline-block;
+    }
+
+    .container:hover label {
+      color: rgb(237, 207, 10);
+    }
+
+    .container label:hover ~ label {
+      color: rgb(149, 146, 146);
+    } */
+
+      /* label:hover{
+      color: #fd4;
+    } */
+
+      .container input:not(:checked) ~ label:hover,
+      .container input:not(:checked) ~ label:hover ~ label {
+        color: #fd4;
+      }
+    </style>
+  </header>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <input
+          type="radio"
+          value="5"
+          class="star"
+          id="star-5"
+          name="star-rating"
+        />
+        <label for="star-5" class="star-label" name="star-rating"
+          ><i class="fa-solid fa-star"></i
+        ></label>
+
+        <input
+          type="radio"
+          value="4"
+          class="star"
+          id="star-4"
+          name="star-rating"
+        />
+        <label for="star-4" class="star-label" name="star-rating"
+          ><i class="fa-solid fa-star"></i
+        ></label>
+
+        <input
+          type="radio"
+          value="3"
+          class="star"
+          id="star-3"
+          name="star-rating"
+        />
+        <label for="star-3" class="star-label" name="star-rating"
+          ><i class="fa-solid fa-star"></i
+        ></label>
+
+        <input
+          type="radio"
+          value="2"
+          class="star"
+          id="star-2"
+          name="star-rating"
+        />
+        <label for="star-2" class="star-label" name="star-rating"
+          ><i class="fa-solid fa-star"></i
+        ></label>
+
+        <input
+          type="radio"
+          value="1"
+          class="star"
+          id="star-1"
+          name="star-rating"
+        />
+        <label for="star-1" class="star-label" name="star-rating"
+          ><i class="fa-solid fa-star"></i
+        ></label>
+      </div>
+
+      <div class="clicked-rating" id="clicked-rating"></div>
+      <button>Submit</button>
+    </div>
+
+    <script>
+      console.log(document.querySelectorAll(".star"));
+      // console.log(document.querySelector(".star").checked);
+
+      const stars = document.querySelectorAll(".star");
+      stars.forEach((star) => {
+        star.addEventListener("click", () => {
+          console.log(star.checked ? star.value : "no");
+          if (star.checked) {
+            document.getElementById("clicked-rating").innerHTML =
+              star.value + " out of 5";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
