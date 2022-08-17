@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        nav {
+            border: 1px solid blueviolet;
+            display: flex;
+        }
+
+        ul {
+            list-style: none;
+            background-color: yellowgreen;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            flex-grow: 1;
+
+        }
+
+        li {
+            display: inline;
+            margin: 1em;
+            background-color: aquamarine;
+        }
+
+        h2 {
+            background-color: aqua;
+            display: inline;
+        }
+
+        label {
+            font-size: 1.5em;
+            background-color: rgb(255, 196, 223);
+            display: none;
+        }
+
+        input {
+            display: none;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                flex-direction: column;
+            }
+
+            ul {
+                background-color: linen;
+                flex-direction: column;
+                display: none;
+            }
+
+            li {
+                display: block;
+            }
+
+            label {
+                display: inline-block;
+                flex-grow: 1;
+                text-align: right;
+            }
+
+            .container {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <h2>LOGO</h2>
+            <input type="checkbox" id="menu" onclick="ShowHideDiv()">
+            <label for="menu">
+                <i class="fa fa-bars"></i>
+            </label>
+        </div>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Blog</li>
+            <li>Contact</li>
+        </ul>
+
+    </nav>
+
+
+    <script>
+        ShowHideDiv = () => {
+            const checkbox = document.getElementById("menu");
+            const ul = document.querySelector("ul");
+            if (!checkbox.checked) {
+                console.log("clicked");
+                console.log(ul);
+                ul.style.display = "none"
+            }else{
+                ul.style.display = "flex"
+            }
+        }
+    </script>
+
+</body>
+
+</html>

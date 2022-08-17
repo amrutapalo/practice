@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Star</title>
+  </header>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      list-style: none;
+      border: 1px solid violet;
+      display: block;
+    }
+
+    ul {
+      border: 1px solid red;
+      display: inline-block;
+    }
+
+    .star-outer {
+      position: relative;
+      display: inline-block;
+    }
+
+    .star-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* white-space: nowrap; */
+      overflow: hidden;
+      width: 0;
+    }
+
+    .star-outer::before {
+      content: "\f005 \f005 \f005 \f005 \f005";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      color: #ccc;
+    }
+    .star-inner::before {
+      content: "\f005 \f005 \f005 \f005 \f005";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      color: rgb(247, 213, 64);
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+  />
+  <body>
+    <form action="">
+      <select name="" id="dropdown">
+        <option value="0" selected disabled>Select Product</option>
+        <option value="philips">Philips</option>
+        <option value="sony">Sony</option>
+        <option value="panasonic">Panasonic</option>
+        <option value="lg">LG</option>
+      </select>
+      <input
+        type="number"
+        step="0.1"
+        max="5"
+        placeholder="Rate 1-5"
+        id="rate"
+        disabled
+      />
+    </form>
+
+    <ul>
+      <li>
+        <div class="philips">
+          philips
+          <div class="star-outer">
+            <div class="star-inner"></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sony">
+          sony
+          <div class="star-outer">
+            <div class="star-inner"></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="panasonic">
+          panasonic
+          <div class="star-outer">
+            <div class="star-inner"></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="lg">
+          lg
+          <div class="star-outer">
+            <div class="star-inner"></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <script>
+      const ratings = {
+        philips: "4.5",
+        sony: "3.0",
+        panasonic: "3.5",
+        lg: "5.0",
+      };
+
+      document.getElementById("dropdown").addEventListener("change", (e) => {
+        document.getElementById("rate").disabled = false;
+        document.getElementById("rate").value = ratings[e.target.value];
+      });
+
+      document.getElementById("rate").addEventListener("blur", (e) => {
+        ratings[document.getElementById("dropdown").value] =
+          document.getElementById("rate").value;
+        console.log(ratings);
+        getRatings();
+      });
+
+      const getRatings = () => {
+        for (let rating in ratings) {
+          console.log(rating);
+          console.log(document.querySelector(`.${rating} .star-inner`));
+          const percentage = (ratings[rating] / 5) * 100;
+          console.log(percentage);
+          document.querySelector(
+            `.${rating} .star-inner`
+          ).style.width = `${percentage}%`;
+        }
+      };
+
+      getRatings();
+    </script>
+  </body>
+</html>
