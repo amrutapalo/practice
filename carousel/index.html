@@ -13,21 +13,26 @@
       <button id="open-modal">Open Live Demo</button>
       <div class="modal-container" id="modal-container">
         <div class="modal">
+
+          
           <div class="carousel-container">
-              <button class="carousel-button prev">&#8678;</button>
-              <button class="carousel-button next">&#8680;</button>
+            <button class="close-button">&times;</button>
+            <button class="carousel-button prev">&#8678;</button>
+            <button class="carousel-button next">&#8680;</button>
             <ul>
-              <li>
+              <li class="slide active" id="slide-1">
                 <img src="./images/section-a.webp" alt="" />
               </li>
-              <li>
+              <li class="slide" id="slide-2">
                 <img src="./images/section-b.webp" alt="" />
               </li>
-              <li>
+              <li class="slide" id="slide-3">
                 <img src="./images/section-c.webp" alt="" />
               </li>
             </ul>
           </div>
+
+
           <div class="submit-control">
             <div class="star-rating">
               <label for="" class="star" id="star-1"
@@ -85,13 +90,6 @@
         </div>
       </div>
     </div>
-    <script>
-        const modal = document.getElementById("modal-container");
-        document.getElementById("open-modal").addEventListener("click", (event) => {
-            // event.preventDefault();
-            console.log("clicked");
-            modal.style.display="block";
-        })
-    </script>
+    <script src="./index.js"></script>
   </body>
 </html>

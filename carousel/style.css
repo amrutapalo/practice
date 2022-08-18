@@ -25,10 +25,10 @@ body {
 }
 
 .modal {
-  height: 50%;
+  height: 600px;
   background-color: rgb(255, 255, 255);
   margin: 0 auto;
-  width: 50%;
+  width: 600px;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -85,6 +85,14 @@ body {
   color: white
 }
 
+.slide{
+  opacity: 0;
+}
+
+.active{
+  opacity: 1;
+}
+
 /* ratings */
 
 .star-rating {
@@ -125,7 +133,5 @@ width: 65%;
 }
 
 .submit-control button.submit:hover {
-  
-
- 
+  background-color: rgb(3, 90, 90);
 }
