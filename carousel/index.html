@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Carousel</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+  </header>
+  <body>
+    <div class="container">
+      <button id="open-modal">Open Live Demo</button>
+      <div class="modal-container" id="modal-container">
+        <div class="modal">
+          <div class="carousel-container">
+              <button class="carousel-button prev">&#8678;</button>
+              <button class="carousel-button next">&#8680;</button>
+            <ul>
+              <li>
+                <img src="./images/section-a.webp" alt="" />
+              </li>
+              <li>
+                <img src="./images/section-b.webp" alt="" />
+              </li>
+              <li>
+                <img src="./images/section-c.webp" alt="" />
+              </li>
+            </ul>
+          </div>
+          <div class="submit-control">
+            <div class="star-rating">
+              <label for="" class="star" id="star-1"
+                ><i class="fa-solid fa-star"></i
+              ></label>
+              <input
+                type="radio"
+                name="star-radio"
+                id="star-radio-5"
+                value="5"
+              />
+
+              <label for="" class="star" id="star-2"
+                ><i class="fa-solid fa-star"></i
+              ></label>
+              <input
+                type="radio"
+                name="star-radio"
+                id="star-radio-4"
+                value="4"
+              />
+
+              <label for="" class="star" id="star-3"
+                ><i class="fa-solid fa-star"></i
+              ></label>
+              <input
+                type="radio"
+                name="star-radio"
+                id="star-radio-3"
+                value="3"
+              />
+
+              <label for="" class="star" id="star-4"
+                ><i class="fa-solid fa-star"></i
+              ></label>
+              <input
+                type="radio"
+                name="star-radio"
+                id="star-radio-2"
+                value="2"
+              />
+
+              <label for="" class="star" id="star-5"
+                ><i class="fa-solid fa-star"></i
+              ></label>
+              <input
+                type="radio"
+                name="star-radio"
+                id="star-radio-1"
+                value="1"
+              />
+            </div>
+            <button type="submit" id="submit" class="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        const modal = document.getElementById("modal-container");
+        document.getElementById("open-modal").addEventListener("click", (event) => {
+            // event.preventDefault();
+            console.log("clicked");
+            modal.style.display="block";
+        })
+    </script>
+  </body>
+</html>
